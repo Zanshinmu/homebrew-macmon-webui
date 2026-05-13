@@ -25,6 +25,6 @@ class MacmonWebui < Formula
   end
 
   test do
-    assert_predicate libexec/"webui.py", :exist?
+    assert_path_exists libexec/"webui.py"
   end
 end
