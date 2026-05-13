@@ -11,7 +11,6 @@ class MacmonWebui < Formula
   def install
     libexec.install "webui.py", "index.html", "install.sh"
   end
-  
   def caveats
     <<~EOS
       Install:
@@ -25,7 +24,6 @@ class MacmonWebui < Formula
         #{libexec}/install.sh --uninstall-webui
     EOS
   end
-  
   test do
     assert_path_exists libexec/"webui.py"
   end
