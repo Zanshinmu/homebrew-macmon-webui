@@ -24,7 +24,6 @@ class MacmonWebui < Formula
         #{libexec}/install.sh --uninstall-webui
     EOS
   end
-  
   test do
     assert_path_exists libexec/"webui.py"
   end
