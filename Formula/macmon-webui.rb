@@ -11,19 +11,20 @@ class MacmonWebui < Formula
   def install
     libexec.install "webui.py", "index.html", "install.sh"
   end
-
-  def post_install
-    system libexec/"install.sh", "--install-webui"
-  end
-
   def caveats
     <<~EOS
-      The dashboard is running at http://localhost:7113/
-      To uninstall the launchd agent before `brew uninstall`:
+      Install:
+        #{libexec}/install.sh                              # macmon serve on this Mac
+        #{libexec}/install.sh --install-remote user@host   # macmon serve on a remote Mac
+        #{libexec}/install.sh --install-webui              # dashboard (http://localhost:7113/)
+
+      Uninstall (run before `brew uninstall`):
+        #{libexec}/install.sh --uninstall
+        #{libexec}/install.sh --uninstall-remote user@host
         #{libexec}/install.sh --uninstall-webui
     EOS
   end
-
+  
   test do
     assert_path_exists libexec/"webui.py"
   end
